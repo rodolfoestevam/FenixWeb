@@ -4,13 +4,24 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+@Entity
+@Inheritance(strategy=InheritanceType.JOINED)
 @MappedSuperclass
-public abstract class Pessoa extends ObjetoSistema {
-
+public class Pessoa extends ObjetoSistema {
+	
+	@Id
+	@GeneratedValue
+	private int id;
+	
 	@Column(length = 50)
 	private String nome;
 	@Temporal(TemporalType.DATE)
@@ -80,6 +91,14 @@ public abstract class Pessoa extends ObjetoSistema {
 
 	public Date getDataNascimento() {
 		return dataNascimento;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }

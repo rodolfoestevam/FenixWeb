@@ -1,5 +1,8 @@
 package basicas;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Funcionario extends Pessoa {
 	private String cargo;
 	private double salario;

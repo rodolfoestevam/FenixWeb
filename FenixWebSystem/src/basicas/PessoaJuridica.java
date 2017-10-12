@@ -1,5 +1,8 @@
 package basicas;
 
+import javax.persistence.Entity;
+
+@Entity
 public class PessoaJuridica extends Pessoa {
 
 	private String cnpj;

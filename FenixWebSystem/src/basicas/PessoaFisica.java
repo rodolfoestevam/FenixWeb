@@ -1,5 +1,8 @@
 package basicas;
 
+import javax.persistence.Entity;
+
+@Entity
 public class PessoaFisica extends Pessoa {
 
 	private String cpf;
